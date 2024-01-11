@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
                 "Yes",
                 DialogInterface.OnClickListener { dialogInterface, i ->
                     // code for action to be performed on clicking positive button
-                    finish()
+                    finish()        //close the app
                 })
             alertBuilder.setNegativeButton(
                 "No",
@@ -37,6 +37,36 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "okay not closing...", Toast.LENGTH_SHORT).show()
                 })
             alertBuilder.show()
+
+        }
+
+        binding.radioDialogBtn.setOnClickListener {
+            val programList =
+                arrayOf("C++", "Java", "DSA", "Web Development", "Android Development")
+
+            val alertBuilder = AlertDialog.Builder(this)
+
+            alertBuilder.setTitle("Your Favorite Items")
+            alertBuilder.setSingleChoiceItems(programList,2,DialogInterface.OnClickListener { dialogInterface, i ->
+
+                //code to perform when any radio button is selected
+                Toast.makeText(this, "${programList[i]} is selected", Toast.LENGTH_SHORT).show()
+            })
+
+            alertBuilder.setPositiveButton(
+                "Accept",
+                DialogInterface.OnClickListener { dialogInterface, i ->
+                    // code for action to be performed on clicking positive button
+                    Toast.makeText(this, "Accepted...", Toast.LENGTH_SHORT).show()
+                })
+            alertBuilder.setNegativeButton(
+                "Reject",
+                DialogInterface.OnClickListener { dialogInterface, i ->
+                    // code for action to be performed on clicking negative button
+                    Toast.makeText(this, "Rejected...", Toast.LENGTH_SHORT).show()
+                })
+            alertBuilder.show()
+
 
         }
     }
