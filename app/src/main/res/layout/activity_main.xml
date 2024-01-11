@@ -22,4 +22,11 @@
         android:layout_height="wrap_content"
         android:text="Open Radio Button Dialog"
         app:layout_constraintTop_toBottomOf="@+id/alertBtn" />
+    <Button
+        android:id="@+id/checkboxcDialogBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Open MultipleChoice Dialog"
+        app:layout_constraintTop_toBottomOf="@+id/radioDialogBtn" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

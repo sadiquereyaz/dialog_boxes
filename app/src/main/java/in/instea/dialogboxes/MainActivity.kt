@@ -46,12 +46,15 @@ class MainActivity : AppCompatActivity() {
 
             val alertBuilder = AlertDialog.Builder(this)
 
-            alertBuilder.setTitle("Your Favorite Items")
-            alertBuilder.setSingleChoiceItems(programList,2,DialogInterface.OnClickListener { dialogInterface, i ->
+            alertBuilder.setTitle("Choose Your Favorite Items")
+            alertBuilder.setSingleChoiceItems(
+                programList,
+                2,
+                DialogInterface.OnClickListener { dialogInterface, i ->
 
-                //code to perform when any radio button is selected
-                Toast.makeText(this, "${programList[i]} is selected", Toast.LENGTH_SHORT).show()
-            })
+                    //code to perform when any radio button is selected
+                    Toast.makeText(this, "${programList[i]} is selected", Toast.LENGTH_SHORT).show()
+                })
 
             alertBuilder.setPositiveButton(
                 "Accept",
@@ -64,6 +67,46 @@ class MainActivity : AppCompatActivity() {
                 DialogInterface.OnClickListener { dialogInterface, i ->
                     // code for action to be performed on clicking negative button
                     Toast.makeText(this, "Rejected...", Toast.LENGTH_SHORT).show()
+                })
+            alertBuilder.show()
+
+
+        }
+
+        binding.checkboxcDialogBtn.setOnClickListener {
+            val programList =
+                arrayOf("C++", "Java", "DSA", "Web Development", "Android Development")
+
+            val alertBuilder = AlertDialog.Builder(this)
+
+            alertBuilder.setTitle("Select Your Favorite Items")
+            alertBuilder.setMultiChoiceItems(
+                programList,
+                null,
+                DialogInterface.OnMultiChoiceClickListener { dialogInterface, which, isChecked ->
+
+                    //code to perform when any radio button is selected
+                    if (isChecked){
+                        Toast.makeText(this, "${programList[which]} Selected", Toast.LENGTH_SHORT).show()
+                    }
+                    else{
+                        Toast.makeText(this, "${programList[which]} UnSelected", Toast.LENGTH_SHORT).show()
+
+                    }
+
+                })
+
+            alertBuilder.setPositiveButton(
+                "Proceed",
+                DialogInterface.OnClickListener { dialogInterface, i ->
+                    // code for action to be performed on clicking positive button
+                    Toast.makeText(this, "Proceeding...", Toast.LENGTH_SHORT).show()
+                })
+            alertBuilder.setNegativeButton(
+                "Back",
+                DialogInterface.OnClickListener { dialogInterface, i ->
+                    // code for action to be performed on clicking negative button
+                    Toast.makeText(this, "hmmmm :(...", Toast.LENGTH_SHORT).show()
                 })
             alertBuilder.show()
 
